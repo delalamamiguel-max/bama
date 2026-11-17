@@ -170,3 +170,56 @@ bama/scripts/link-skills.sh       # links every skill into ~/.claude/skills and 
 ## License
 
 [MIT](LICENSE)
+
+
+---
+
+# Owned checkout guide
+
+## Purpose and status
+
+`delalamamiguel-max/bama` is an owned reference fork of [daveebbelaar/bama](https://github.com/daveebbelaar/bama), the Build Any Mac App skill collection. The original upstream README above is preserved unchanged. Its product workflow describes what installed skills guide an agent to do, not proof that this checkout is installed or any app has been built.
+
+## Repository map
+
+- `skills/start/`, `skills/plan/`, `skills/code/`, `skills/design/`, `skills/ship/`: staged skill instructions, references and templates.
+- `skills/start/new-mac-app/template/`: Swift application skeleton and build/snapshot tooling.
+- `scripts/link-skills.sh`: links skills into local agent directories.
+- `.claude-plugin/`: plugin metadata and shipped skill registration.
+- `specs/`, `docs/`: app plans and supporting documentation.
+- `AGENTS.md`, `LICENSE`: contributor guidance and MIT terms.
+
+## Architecture and integrations
+
+This is a skill/plugin library, not a running macOS app or backend service. Agents combine instructions with Swift/SwiftUI tooling and optional computer use. The scaffold creates a separate app project; its script copies templates, replaces placeholders and initializes/commits Git state. Inspection or screenshots of other applications require separately authorized targets.
+
+## Setup and environments
+
+The upstream requirements describe macOS 26+ and Swift 6.2 tooling for generated applications. Skill installation depends on the chosen harness. Review the preserved installation section before separately authorized setup. The local linking script uses zsh and writes symlinks under both `~/.claude/skills` and `~/.agents/skills`; it can replace same-named links. Do not run it simply to read the fork.
+
+## Safe commands
+
+For this documentation review use `git status --short`, `git diff -- README.md` and `git diff --check`. Upstream install, update, build, test and deployment examples above are retained reference material, not commands executed or authorized by this README rollout.
+
+Scaffolding, app builds, snapshots, icon generation and agent-CLI helpers write files or run software. Keep them out of README-only validation. No root npm application manifest is present.
+
+## Testing and validation
+
+Generated templates include Swift tests and self-test/snapshot tools. Contributor guidance calls for plugin validation when adding skills; no skills or plugin metadata changed here. Static README checks do not establish plugin discovery, screenshot correctness or successful app compilation.
+
+## Deployment and rollback
+
+There is no hosted application to deploy from this fork. Installing/linking skills and distributing a generated Mac app are separate operations. Record the selected upstream revision before installation; restore the intended prior link/package to roll back a skill update without deleting unrelated skills or app work. No installed copy was inspected or changed.
+
+## Risks and guardrails
+
+Preserve upstream authorship, MIT notices and target-project branding/functionality. Do not copy private app data, proprietary assets or account screenshots into public examples. A clone-style workflow does not confer rights to redistribute a target's content. This guide changes only the owned fork README and is not an upstream contribution or skill behavior change.
+
+## Related documentation
+
+- [Contributor guidance](AGENTS.md)
+- [Application specifications](specs/README.md)
+- [Plugin manifest](.claude-plugin/plugin.json)
+- [License](LICENSE)
+
+This owned-checkout guide was checked statically only. No installation, application build/test, agent invocation, provider call, target acquisition, database operation or deployment was performed. Installed state, upstream freshness, external URLs and runtime behavior remain unverified.
